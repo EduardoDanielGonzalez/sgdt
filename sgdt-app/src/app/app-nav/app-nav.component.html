@@ -1,0 +1,95 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark p-1 d-print-none">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="" routerLink="/">
+            <strong style="color: gold;">
+                TE<i class="fas fa-dollar-sign fa-spin" style="color: greenyellow;"></i>ORERÍA
+            </strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" #navbarTogglerBtn>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarScroll">
+
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+                <li class="nav-item dropdown pl-2 pr-2 mr-2 text-center">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-hand-holding-usd text-success"></i>
+                        Sector Cajas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#">Caja Chica</a></li>
+                        <li><a class="dropdown-item"  href="/cheques" routerLink="/cheques">Cheques J.P.M.</a></li>
+                        <li><a class="dropdown-item" href="#">Recaudaciones</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Cuentas personales</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown pl-2 pr-2 mr-2">
+                    <a class="nav-link dropdown-toggle active text-center" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-user-tie text-info"></i>
+                        Sector Operativo
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#">Discriminación saldo</a></li>
+                        <li><a class="dropdown-item" href="#">Tarjetas de cobro</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown pl-2 pr-2 mr-2">
+                    <a class="nav-link dropdown-toggle active text-center" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-tools text-warning"></i>
+                        Utilidades
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <div class="dropdown-header">Utilidades varias de la app</div>
+                        <li><a class="dropdown-item" href="/cuentasjpm" routerLink="/cuentasjpm">Cuentas J.P.M.</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <div class="dropdown-header">Utilidades extras de la app</div>
+                        <li><a class="dropdown-item" href="#">Respaldar base de datos</a></li>
+                        <li><a class="dropdown-item" href="#">Almacenamiento archivos</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <div class="dropdown-header">Utilidades externas</div>
+                        <li>
+                            <a class="dropdown-item" href="/enlaces" routerLink="/enlaces">
+                                Enlaces de interés
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-scroll ml-auto" style="--bs-scroll-height: 100px;">
+
+                <li class="nav-item dropdown pl-2 pr-2 text-center">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-user text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#">Abrir sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrar usuario</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

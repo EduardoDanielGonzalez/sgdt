@@ -1,0 +1,30 @@
+<div class="card m-2 p-1 border-dark">
+    <h5 class="text-center">Cuentas bancarias de la Jefatura de Policía de Montevideo</h5>
+    <table class="table table-sm table-bordered border-dark table-hover">
+        <thead>
+            <tr>
+                <th class="bg-light border-dark border-2" scope="col">Banco</th>
+                <th class="bg-light border-dark border-2" scope="col">Sucursal</th>
+                <th class="bg-light border-dark border-2" scope="col">Cuenta</th>
+                <th class="bg-light border-dark border-2 d-print-none" scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let cuentajpm of cuentajpms; let i = index">
+            <tr>
+                <td scope="row">{{ cuentajpm.banco | titlecase }}</td>
+                <td>{{ cuentajpm.sucursal | titlecase }}</td>
+                <td>{{ cuentajpm.cuenta | uppercase }}</td>
+                <td class="d-print-none">
+                    <a class="btn btn-sm btn-outline-success rounded mr-1" href="/cuentasjpm-edit/{{cuentajpm.id}}"
+                    routerLink="/cuentasjpm-edit/{{cuentajpm.id}}">
+                        <i class="fas fa-pencil-alt"></i> Editar
+                    </a>
+                    <a class="btn btn-sm btn-outline-danger rounded" href="/cuentasjpm-del/{{cuentajpm.id}}"
+                        routerLink="/cuentasjpm-del/{{cuentajpm.id}}">
+                        <i class="fas fa-minus-circle"></i> Borrar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

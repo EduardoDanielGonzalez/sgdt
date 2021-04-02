@@ -1,0 +1,47 @@
+<div class="alert alert-warning" *ngIf="submitted">
+    <h4>Cuenta J.P.M. eliminada con éxito!</h4>
+</div>
+
+<div class="card border-2 border-dark m-1">
+
+    <div class="card-header text-center bg-success text-white border-dark">
+        <h5 class="m-0 p-0">¿Confirma que desea borrar la cuenta bancaria de J.P.M.?</h5>
+    </div>
+
+    <div class="card-body bg-light">
+
+        <form>
+
+            <div class="input-group row">
+                <span class="input-group-text col-2 bg-primary text-white rounded" id="cuentajpm-add-banco">Banco</span>
+                <input type="text" name="banco" #banco class="form-control" placeholder="Institución bancaria"
+                    aria-label="banco" aria-describedby="cuentajpm-add-banco" 
+                    appAutofocus [(ngModel)]="cuentajpm.banco" [appNextTab]="sucursal" value="{{ this.cuentajpm.banco | titlecase }}" readonly>
+            </div>
+
+            <div class="input-group mt-1 row">
+                <span class="input-group-text col-2 bg-primary text-white rounded" id="cuentajpm-add-sucursal">Sucursal</span>
+                <input type="text" name="sucursal" #sucursal class="form-control" placeholder="Sucursal bancaria" aria-label="sucursal"
+                    aria-describedby="cuentajpm-add-sucursal" [(ngModel)]="cuentajpm.sucursal" [appNextTab]="cuenta" value="{{ this.cuentajpm.sucursal | titlecase }}" readonly>
+            </div>
+
+            <div class="input-group mt-1 row">
+                <span class="input-group-text col-2 bg-primary text-white rounded" id="cuentajpm-add-cuenta">Cuenta</span>
+                <input type="text" name="cuenta" #cuenta class="form-control" placeholder="Cuenta bancaria" aria-label="cuenta"
+                    aria-describedby="cuentajpm-add-cuenta" [(ngModel)]="cuentajpm.cuenta" [appNextTab]="borrar" value="{{ this.cuentajpm.cuenta | uppercase }}" readonly>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="card-footer bg-ligth text-end border-dark">
+        <a class="btn btn-success rounded mr-3" (click)="deleteCuentajpm()" #borrar>
+            <i class="fas fa-minus-circle"></i> Borrar
+        </a>
+        <a class="btn btn-outline-secondary rounded mr-3" href="/cuentasjpm" routerLink="/cuentasjpm" #cancelar>
+            <i class="fas fa-times"></i> Cancelar
+        </a>
+    </div>
+
+</div>

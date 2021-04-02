@@ -1,0 +1,15 @@
+<ng-template #content let-modal>
+  <div class="modal-header bg-light">
+    <h4 class="modal-title" id="modal-basic-title">Editar</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Click cerrar')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <p>Hello, World!</p>
+  </div>
+  <div class="modal-footer bg-light">
+      <button type="button" class="btn rounded btn-success" (click)="activeModal.close('Click Actualizar')">Actualizar</button>
+      <button type="button" class="btn rounded btn-outline-dark" (click)="activeModal.close('Click Cancelar')">Cancelar</button>
+  </div>
+</ng-template>

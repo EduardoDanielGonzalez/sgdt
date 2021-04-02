@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+.navbar .nav-item {
+    border: 2px groove gray;
+    border-radius: 0.5em;
+}
+
+.navbar .nav-item:hover {
+    border-color: orange;
+}
+
+.navbar form a {
+    border: 2px groove gray;
+    border-radius: 0.5em;
+}
+
+.navbar form a:hover {
+    border: 2px groove orange;
+    border-radius: 0.5em;
+}

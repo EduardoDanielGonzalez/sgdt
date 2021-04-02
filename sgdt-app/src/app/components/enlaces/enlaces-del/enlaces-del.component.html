@@ -1,0 +1,47 @@
+<div class="alert alert-warning" *ngIf="submitted">
+    <h4>Enlace eliminado con éxito!</h4>
+</div>
+
+<div class="card border-2 border-dark m-1">
+
+    <div class="card-header text-center bg-success text-white border-dark">
+        <h5 class="m-0 p-0">¿Confirma que desea borrar el enlace?</h5>
+    </div>
+
+    <div class="card-body bg-light">
+
+        <form>
+
+            <div class="input-group mb-1 row">
+                <span class="input-group-text col-2 bg-primary text-white rounded" id="enlace-del-titulo">Título</span>
+                <input type="text" name="titulo" #titulo class="form-control" placeholder="Título del enlace"
+                    aria-label="titulo" aria-describedby="enlace-del-titulo" 
+                    [(ngModel)]="enlace.titulo" [appNextTab]="url" readonly>
+            </div>
+
+            <div class="input-group mb-1 row">
+                <span class="input-group-text col-2 bg-primary text-white rounded" id="enlace-del-url">Dirección</span>
+                <input type="text" name="url" #url class="form-control" placeholder="URL del enlace" aria-label="url"
+                    aria-describedby="enlace-del-url" [(ngModel)]="enlace.url" [appNextTab]="delete" readonly>
+            </div>
+
+            <div class="input-group row">
+                <span class="input-group-text col-2 bg-primary text-white rounded" id="enlace-del-created">Creado el</span>
+                <input type="text" name="created" #created class="form-control" placeholder="Fecha de creación del enlace" aria-label="created"
+                    aria-describedby="enlace-del-url" [ngModel]="enlace.createdAt | date: 'dd/MM/yyyy'" (ngModelChange)="enlace.createdAt=$event" [appNextTab]="delete" readonly value="{{ enlace.updatedAt |date }}">
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="card-footer bg-ligth text-end border-dark">
+        <a class="btn btn-danger rounded mr-3" (click)="deleteEnlace()" appAutofocus #delete>
+            <i class="fas fa-minus-circle"></i> Borrar
+        </a>
+        <a class="btn btn-outline-secondary rounded mr-3" href="/enlaces" routerLink="/enlaces" #cancelar>
+            <i class="fas fa-times"></i> Cancelar
+        </a>
+    </div>
+
+</div>

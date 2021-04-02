@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary p-1">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <strong>Enlaces</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <form class="container-fluid justify-content-start">
+                <a class="btn btn-info rounded-2" href="/enlaces-add" routerLink="/enlaces-add">
+                    <i class="fas fa-plus-circle"></i> Agregar
+                </a>
+            </form>
+            <form class="justify-content-end">
+                <input class="form-control me-2" type="search" name="buscar" appAutofocus
+                    placeholder="Buscar por título" aria-label="Buscar por título" (input)="sendBuscar()"
+                    [(ngModel)]="buscar" />
+            </form>
+        </div>
+    </div>
+</nav>

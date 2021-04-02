@@ -1,0 +1,36 @@
+{
+  "name": "sgdt-api",
+  "version": "1.0.0",
+  "description": "API Rest full de la Dirección de Tesorería de la Jefatura de Policía de Montevideo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "server.js"
+  },
+  "keywords": [
+    "API",
+    "Rest",
+    "full",
+    "Dirección",
+    "Tesorería",
+    "Jefatura",
+    "Policía",
+    "Montevideo"
+  ],
+  "author": "Eduardo Daniel González Gadea",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,19 @@
+<div class="card m-2 border-dark">
+    <div class="card text-center bg-light m-1" *ngFor="let enlace of enlaces; let i = index">
+        <div class="card-body p-1">
+            <div class="btn-group col-12" role="group">
+                <a class="btn col-8 btn-outline-dark mr-1 enlace-link" href="{{ enlace.url }}" target="_blank">
+                    <strong>{{ enlace.titulo }}</strong>
+                </a>
+                <a class="btn col-2 btn-outline-success rounded mr-1" href="/enlaces-edit/{{enlace.id}}" 
+                routerLink="/enlaces-edit/{{enlace.id}}">
+                    <i class="fas fa-pencil-alt"></i> Editar
+                </a>
+                <a class="btn col-2 btn-outline-danger rounded" href="/enlaces-del/{{enlace.id}}" 
+                routerLink="/enlaces-del/{{enlace.id}}">
+                    <i class="fas fa-minus-circle"></i> Borrar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
