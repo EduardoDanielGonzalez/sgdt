@@ -32,7 +32,7 @@
             </div>
             
             <div class="card-footer border-dark border-top text-end">
-              <a href="/cheques/editar/{{cheque.id}}" routerLink="/cheques/editar/{{cheque.id}}" class="btn btn-outline-success rounded">
+              <a href="" (click)="$event.preventDefault(); openEdit(cheque.id);" class="btn btn-outline-success rounded">
                 Editar
                 </a>
                 <a href="/cheques/borrar/{{cheque.id}}" routerLink="/cheques/borrar/{{cheque.id}}" class="btn btn-outline-danger ml-2 rounded">

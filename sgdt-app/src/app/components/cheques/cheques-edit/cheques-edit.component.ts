@@ -1,8 +1,10 @@
-, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 import { ChequesModel } from '../../../models/cheques-model';
 import { ChequesService } from '../../../services/cheques.service';
+import { DatasService } from '../../../services/datas.service';
+
 
 @Component({
   selector: 'app-cheques-edit',
@@ -11,33 +13,12 @@ import { ChequesService } from '../../../services/cheques.service';
 })
 export class ChequesEditComponent implements OnInit {
   
-  @ViewChild('content', {static: false}) contenidoDelModal;
-  
-  closeResult = '';
+  currentId: any;
 
-  constructor(private service: ChequesService, private modalService: NgbModal) { }
+  constructor(private service: ChequesService, public datasservice: DatasService, public activeModal: NgbActiveModal) { }
   
   ngOnInit(): void {
-    this.openEdit();
-  }
-  
-  openEdit() {
-        const modalRef = this.modalService.open(contenidoDelModal, {ariaLabelledBy: 'modal-title', backdrop: 'static', size: 'xl', centered: true}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-      window.alert(this.closeResult);
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-  
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+    this.currentId = this.datasservice.getValor();
   }
 
 }

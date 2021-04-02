@@ -3,6 +3,7 @@ import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-
 
 import { ChequesModel } from '../../../models/cheques-model';
 import { ChequesService } from '../../../services/cheques.service';
+import { DatasService } from '../../../services/datas.service';
 import { ChequesEditComponent } from '../cheques-edit/cheques-edit.component';
 
 @Component({
@@ -21,6 +22,7 @@ export class ChequesListComponent implements OnInit {
 
   isCargando = false;
   
+  myDatas = [];
   closeResult = '';
   
   @Input() isBuscar: string;
@@ -32,22 +34,26 @@ export class ChequesListComponent implements OnInit {
     }
   }
 
-  constructor(private service: ChequesService, private modalService: NgbModal) { }
+  constructor(private service: ChequesService, public datasservice: DatasService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.retrieve();
   }
   
-  openEdit() {
-        const modalRef = this.modalService.open(ChequesEditComponent, {ariaLabelledBy: 'modal-title', backdrop: 'static', size: 'xl', centered: true}).result.then((result) => {
+  openEdit(idEdit:any) {
+    
+    this.datasservice.setValor(idEdit);
+     
+    const modalRef = this.modalService.open(ChequesEditComponent, {ariaLabelledBy: 'modal-title', backdrop: 'static', size: 'xl', centered: true}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       window.alert(this.closeResult);
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+    
   }
   
-  private getDismissReason(reason: any): string {
+  getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
