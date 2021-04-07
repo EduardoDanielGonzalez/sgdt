@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary p-1 d-print-none">
+<nav class="navbar navbar-expand-md navbar-dark bg-secondary p-1 d-print-none">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <strong>Cheques J.P.M.</strong>
@@ -8,11 +8,19 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <form class="container-fluid justify-content-start">
-                <a class="btn btn-info rounded-2" href="/cheques-add" routerLink="/cheques-add">
-                    <i class="fas fa-plus-circle"></i> Agregar
-                </a>
-            </form>
+          
+          
+             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+                <li class="nav-item pl-2 pr-2 mr-2 text-center">
+                    <a class="nav-link active" href="/cheques/agregar" routerLink="/cheques/agregar">
+                        <i class="fas fa-plus-circle"></i>
+                        Agregar
+                    </a>
+                </li>
+
+            </ul>
+            
             <form class="justify-content-end">
                 <input class="form-control me-2" type="search" name="buscar" appAutofocus
                     placeholder="Buscar por número" aria-label="Buscar por número" (input)="sendBuscar()"

@@ -1,7 +1,8 @@
 <div class="card m3 bg-light">
   
-    <div class="card-header text-center bg-secondary">
+    <div class="card-header text-center bg-light">
       <strong>LISTADO DE CHEQUES</strong>
+      <small> ({{ cheques.totItems }}) </small>
     </div>
 
     <div *ngIf="isCargando">
@@ -23,16 +24,19 @@
             <div class="card-body">
                 Banco: {{ cheque.cuentajpms[0].banco }}<br>
                 Sucursal: {{ cheque.cuentajpms[0].sucursal }}<br>
-                Ingreso: {{ cheque.ingreso }}<br>
+                Ingreso: {{ cheque.ingreso | date:'dd/MM/yyyy' }}<br>
                 Doc.Tipo: {{ cheque.doc_tipo }}<br>
                 Doc.Nro.: {{ cheque.doc_numero }}<br>
                 Titular: {{ cheque.titular | uppercase }}<br>
                 Concepto: {{ cheque.concepto | uppercase }}<br>
                 Monto: {{ cheque.monto | currency:'CAD':'$ ':'3.2-2' }}<br>
+                Emisión: {{ cheque.emision | date:'dd/MM/yyyy' }}<br>
+                Anulado: {{ cheque.anulado | date:'dd/MM/yyyy' }}<br>
+                Motivo de anulación: {{ cheque.motivo }}<br>
             </div>
             
             <div class="card-footer border-dark border-top text-end">
-              <a href="" (click)="$event.preventDefault(); openEdit(cheque.id);" class="btn btn-outline-success rounded">
+              <a href="" (click)="$event.preventDefault(); openEdit({'id': cheque.id});" class="btn btn-outline-success rounded">
                 Editar
                 </a>
                 <a href="/cheques/borrar/{{cheque.id}}" routerLink="/cheques/borrar/{{cheque.id}}" class="btn btn-outline-danger ml-2 rounded">
@@ -45,74 +49,3 @@
     </div>
 
 </div>
-
-<!-- <div class="card m-2 p-1 border-dark">
-    <h5 class="text-center">Cheques de la Jefatura de Policía de Montevideo</h5>
-    <table class="table table-sm table-bordered border-dark table-hover">
-        <thead>
-            <tr>
-                <th class="bg-light border-dark border-2" scope="col">Banco</th>
-                <th class="bg-light border-dark border-2" scope="col">Cuenta</th>
-                <th class="bg-light border-dark border-2" scope="col">Serie</th>
-                <th class="bg-light border-dark border-2" scope="col">Número</th>
-                <th class="bg-light border-dark border-2" scope="col">Ingreso</th>
-                <th class="bg-light border-dark border-2" scope="col">Doc.Tipo</th>
-                <th class="bg-light border-dark border-2" scope="col">Doc.Num.</th>
-                <th class="bg-light border-dark border-2" scope="col">Titular</th>
-                <th class="bg-light border-dark border-2" scope="col">Concepto</th>
-                <th class="bg-light border-dark border-2" scope="col">Monto</th>
-                <th class="bg-light border-dark border-2 d-print-none" scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let cheque of cheques; let i = index">
-            <tr>
-                <td scope="row"><small>{{ cheque.cuentajpms[0].banco }}</small></td>
-                <td scope="row"><small>{{ cheque.cuentajpms[0].cuenta }}</small></td>
-                <td><small>{{ cheque.serie }}</small></td>
-                <td><small>{{ cheque.numero }}</small></td>
-                <td><small>{{ cheque.ingreso | date:'dd/MM/yyyy' }}</small></td>
-                <td><small>{{ cheque.doc_tipo }}</small></td>
-                <td><small>{{ cheque.doc_numero }}</small></td>
-                <td><small>{{ cheque.titular | titlecase }}</small></td>
-                <td><small>{{ cheque.concepto }}</small></td>
-                <td style="text-align: end;"><small>{{ cheque.monto | currency:'CAD':'$ ':'3.2-2' }}</small></td>
-                <td class="d-print-none">
-                    <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-success rounded mr-1" href="" routerLink="">
-                            <i class="fas fa-pencil-alt"></i> Editar
-                        </a>
-                        <a class="btn btn-sm btn-outline-danger rounded" href="" routerLink="">
-                            <i class="fas fa-minus-circle"></i> Borrar
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <nav aria-label="Page navigation">
-        <ul class="pagination pagination-sm justify-content-end">
-            <li class="page-item" (click)="$event.preventDefault(); pageAnt();">
-                <a class="page-link" tabindex="-1" aria-disabled="true">Ant.</a>
-            </li>
-            <li class="page-item active" (click)="$event.preventDefault();">
-                <a class="page-link">{{ currentPage }}</a>
-            </li>
-            <li class="page-item" (click)="$event.preventDefault(); pageNum(currentPage+1);">
-                <a class="page-link">{{ currentPage + 1 }}</a>
-            </li>
-            <li class="page-item item-toggle" (click)="$event.preventDefault(); pageNum(currentPage+2);">
-                <a class="page-link">{{ currentPage + 2 }}</a>
-            </li>
-            <li class="page-item item-toggle" (click)="$event.preventDefault(); pageNum(currentPage+3);">
-                <a class="page-link">{{ currentPage + 3 }}</a>
-            </li>
-            <li class="page-item item-toggle" (click)="$event.preventDefault(); pageNum(currentPage+4);">
-                <a class="page-link">{{ currentPage + 4 }}</a>
-            </li>
-            <li class="page-item item-toggle" (click)="$event.preventDefault(); pageProx();">
-                <a class="page-link">Próx.</a>
-            </li>
-        </ul>
-    </nav>
-
-</div> -->

@@ -13,7 +13,7 @@ export class DatasService {
     this.myDatas = myData;
   }
   
-  getValor() {
+  getDatas() {
     return this.myDatas;
   }
   

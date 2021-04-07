@@ -16,8 +16,12 @@ export class ChequesService {
     return baseUrl;
   }
 
-  getAll(pagina:any): Observable<ChequesModel[]> {
-    return this.http.get<ChequesModel[]>(`${baseUrl}?pagina=${pagina}`);
+  getAll(pagina:any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}?pagina=${pagina}`);
+  }
+
+  getAndCountAll(pagina:any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/count/?pagina=${pagina}`);
   }
 
   get(id:any): Observable<ChequesModel> {
@@ -42,6 +46,10 @@ export class ChequesService {
 
   findBy(numero:any): Observable<ChequesModel[]> {
     return this.http.get<ChequesModel[]>(`${baseUrl}?numero=${numero}`);
+  }
+  
+  rowsCount(): Observable<any> {
+    return this.http.get(`${baseUrl}/contar`);
   }
 
 }

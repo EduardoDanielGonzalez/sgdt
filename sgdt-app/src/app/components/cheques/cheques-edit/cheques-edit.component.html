@@ -1,14 +1,50 @@
+<div class="modal-header bg-light">
+  <h4 class="modal-title" id="modal-basic-title">Editar</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Click cerrar')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <small>
+    Banco: {{ currentEdit.cuentajpms[0].banco }}<br>
+    Sucursal: {{ currentEdit.cuentajpms[0].sucursal }}
+  </small>
+  <p>
+    <strong>
+      Cuenta: {{ currentEdit.cuentajpms[0].cuenta }}<br>
+      Serie: {{ currentEdit.serie }}<br>
+      Número: {{ currentEdit.numero}}<br>
+    </strong>
+  </p>
 
-  <div class="modal-header bg-light">
-    <h4 class="modal-title" id="modal-basic-title">Editar</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Click cerrar')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-    <p>{{ currentId }}</p>
-  </div>
-  <div class="modal-footer bg-light">
-      <button type="button" class="btn rounded btn-success" (click)="activeModal.close('Click Actualizar')">Actualizar</button>
-      <button type="button" class="btn rounded btn-outline-dark" (click)="activeModal.close('Click Cancelar')">Cancelar</button>
-  </div>
+
+  <form>
+
+    <div class="input-group row">
+      <span class="input-group-text col-3 bg-primary text-white rounded" id="titular">Titular</span>
+      <input type="text" name="titular" #titular class="form-control" placeholder="Titular del cheque"
+      aria-label="titular" aria-describedby="titular"
+      appAutofocus [(ngModel)]="currentEdit.titular" [appNextTab]="concepto" value="{{ this.currentEdit.titular | titlecase }}">
+    </div>
+
+    <div class="input-group mt-1 row">
+      <span class="input-group-text col-3 bg-primary text-white rounded" id="concepto">Concepto</span>
+      <input type="text" name="concepto" #concepto class="form-control" placeholder="Concepto del cheque" aria-label="concepto"
+      aria-describedby="concepto" [(ngModel)]="currentEdit.concepto" [appNextTab]="monto" value="{{ this.currentEdit.concepto | titlecase }}">
+    </div>
+
+    <div class="input-group mt-1 row">
+      <span class="input-group-text col-3 bg-primary text-white rounded" id="monto">Monto</span>
+      <input type="text" name="monto" #monto class="form-control" placeholder="Monto del cheque" aria-label="monto"
+      aria-describedby="monto" [(ngModel)]="currentEdit.monto" [appNextTab]="actualizar" value="{{ this.currentEdit.monto | currency }}">
+    </div>
+
+  </form>
+
+
+
+</div>
+<div class="modal-footer bg-light">
+  <button type="button" class="btn rounded btn-success" #actualizar (click)="activeModal.close('Click Actualizar')">Actualizar</button>
+  <button type="button" class="btn rounded btn-outline-dark" (click)="activeModal.close('Click Cancelar')">Cancelar</button>
+</div>

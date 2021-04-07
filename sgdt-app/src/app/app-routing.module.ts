@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'cuentasjpm-edit/:id', component: CuentajpmsEditComponent },
   { path: 'cuentasjpm-del/:id', component: CuentajpmsDelComponent },
   { path: 'cheques', component: ChequesUiComponent },
-  { path: 'cheques-add', component: ChequesAddComponent },
+  { path: 'cheques/agregar', component: ChequesAddComponent },
   { path: 'cheques/editar/:id', component: ChequesEditComponent },
   { path: 'cheques/borrar/:id', component: ChequesDelComponent },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' }

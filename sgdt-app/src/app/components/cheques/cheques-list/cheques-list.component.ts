@@ -13,7 +13,7 @@ import { ChequesEditComponent } from '../cheques-edit/cheques-edit.component';
 })
 export class ChequesListComponent implements OnInit {
 
-  cheques?: ChequesModel[];
+  cheques?: any;
   currentPage = 1;
   currentCheque?: ChequesModel;
   currentIndex = -1;
@@ -22,7 +22,6 @@ export class ChequesListComponent implements OnInit {
 
   isCargando = false;
   
-  myDatas = [];
   closeResult = '';
   
   @Input() isBuscar: string;
@@ -44,7 +43,7 @@ export class ChequesListComponent implements OnInit {
     
     this.datasservice.setValor(idEdit);
      
-    const modalRef = this.modalService.open(ChequesEditComponent, {ariaLabelledBy: 'modal-title', backdrop: 'static', size: 'xl', centered: true}).result.then((result) => {
+    const modalRef = this.modalService.open(ChequesEditComponent, {ariaLabelledBy: 'modal-title', size: 'xl', centered: true}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       window.alert(this.closeResult);
     }, (reason) => {
@@ -75,7 +74,7 @@ export class ChequesListComponent implements OnInit {
           console.log(error);
         },
         () => {
-          console.log('Terminado')
+          console.log('Terminado');
           this.isCargando = false;
         });
   }
@@ -94,7 +93,6 @@ export class ChequesListComponent implements OnInit {
     this.currentPage = pagina;
     this.retrieve();
   }
-
 
   search(): void {
     this.service.findBy(this.isBuscar)

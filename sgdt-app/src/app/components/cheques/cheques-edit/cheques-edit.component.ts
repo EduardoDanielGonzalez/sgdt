@@ -13,12 +13,25 @@ import { DatasService } from '../../../services/datas.service';
 })
 export class ChequesEditComponent implements OnInit {
   
-  currentId: any;
+  currentEdit: any;
+  currentId: number;
 
-  constructor(private service: ChequesService, public datasservice: DatasService, public activeModal: NgbActiveModal) { }
+  constructor(private dbService: ChequesService, private datasService: DatasService, public activeModal: NgbActiveModal) { }
   
   ngOnInit(): void {
-    this.currentId = this.datasservice.getValor();
+    this.currentId = this.datasService.getDatas().id;
+    this.getForId(this.currentId);
+  }
+  
+  getForId(id: number): void {
+    this.dbService.get(id)
+      .subscribe(
+        data => {
+          this.currentEdit = data;
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }

@@ -9,7 +9,13 @@ module.exports = app => {
     // Retrieve all
     router.get("/", cheque.findAll);
 
-    // Retrieve a single with id
+     // Retrieve and count all
+    router.get("/count", cheque.findAndCountAll);
+
+     // Solo count all
+    router.get("/contar", cheque.rowsCount);
+
+   // Retrieve a single with id
     router.get("/:id", cheque.findOne);
 
     // Update with id
